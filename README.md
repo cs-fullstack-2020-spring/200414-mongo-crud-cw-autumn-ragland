@@ -8,7 +8,7 @@ Define a Resident Schema with properties :
 - first name (string)
 - last name (string)
 - pets(array)
-- single(true or false)
+- single(boolean)
 - phone number (number)
 ### Using Mongoose
 - Connect to your Mongo Database and set up error message in your entry point file using the code snippet below
@@ -23,9 +23,8 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true, useF
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 ```
-
 ### Requirements 
-Each requirement must be an endpoint
+Each requirement must be an endpoint and each endpoint should be mounted to the `api` path
 - Create a new resident
 - Find multiple residents by last name
 - Find single residents
