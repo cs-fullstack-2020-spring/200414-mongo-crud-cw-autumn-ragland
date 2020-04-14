@@ -1,6 +1,9 @@
+// import mongoose
 let mongoose = require('mongoose');
+// create reference to Schema class
 let Schema = mongoose.Schema;
 
+// define model
 let ResidentSchema = new Schema(
     {
         firstName :  String,
@@ -11,4 +14,5 @@ let ResidentSchema = new Schema(
     }
 );
 
+// export model 
 module.exports = mongoose.model('resident200414', ResidentSchema);

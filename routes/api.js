@@ -1,5 +1,8 @@
+// import express
 let express = require('express');
+// create router
 let router = express.Router();
+// json middleware
 router.use(express.json());
 
 let ResidentCollection = require('../models/ResidentSchema');
@@ -29,19 +32,19 @@ router.get('/lastName/:lastName', (req,res) => {
     );
 });
 
-// get single residents
-router.get('/single', (req,res) => {
-    ResidentCollection.find(
-        {single : true}, (error, result) => {
+// get resident by first name
+router.get('/firstName/:firstName', (req,res) => {
+    ResidentCollection.findOne(
+        {firstName : req.params.firstName}, (error, result) => {
             error ? res.send(error) : res.send(result)
         }
     );
 });
 
-// get resident by first name
-router.get('/firstName/:firstName', (req,res) => {
-    ResidentCollection.findOne(
-        {firstName : req.params.firstName}, (error, result) => {
+// get single residents
+router.get('/single', (req,res) => {
+    ResidentCollection.find(
+        {single : true}, (error, result) => {
             error ? res.send(error) : res.send(result)
         }
     );
